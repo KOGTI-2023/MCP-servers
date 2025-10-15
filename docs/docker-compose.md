@@ -43,7 +43,7 @@ VS Code without having to install Node.js, Python, or `uv` locally.
    docker compose exec dev npm run build --workspaces
    ```
 
-4. Install Python dependencies for the `uv-based servers` (run each command once):
+4. Install Python dependencies for the `uv`-based servers (run each command once):
 
    ```bash
    docker compose exec dev bash -lc "cd src/fetch && uv sync --frozen"
