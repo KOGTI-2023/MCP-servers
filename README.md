@@ -16,6 +16,14 @@ Typically, each MCP server is implemented with an MCP SDK:
 - [Swift MCP SDK](https://github.com/modelcontextprotocol/swift-sdk)
 - [TypeScript MCP SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 
+
+## 🐳 Docker Compose setup
+
+Looking for a pre-built development environment? Check out the
+[Docker Compose guide](docs/docker-compose.md) which walks through building the
+toolbox container, installing dependencies, and wiring the reference servers up
+to Cursor or VS Code.
+
 > [!NOTE]
 > Lists in this README are maintained in alphabetical order to minimize merge conflicts when adding new items.
 
