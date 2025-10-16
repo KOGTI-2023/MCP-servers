@@ -12,14 +12,9 @@ VS Code without having to install Node.js, Python, or `uv` locally.
 
 ## Getting started
 
-1. Build the toolbox container. On Linux hosts, export `UID`, `GID`, and
-   optionally `USERNAME` beforehand so the non-root user inside the image matches
-   your local account and bind-mounted files remain writable:
+1. Build the toolbox container:
 
    ```bash
-   export UID=$(id -u)   # Linux only; harmless elsewhere
-   export GID=$(id -g)
-   export USERNAME=${USER:-dev}
    docker compose build
    ```
 
@@ -31,10 +26,7 @@ VS Code without having to install Node.js, Python, or `uv` locally.
 
    The container is started with a `sleep infinity` command so that editors can
    attach to it (e.g. VS Code "Attach to Container") and tools such as Cursor
-   can spawn MCP servers inside it on demand.  A Docker healthcheck waits for
-   both Node.js and `uv` to be ready before reporting the container as healthy,
-   which keeps editor integrations from attempting to execute MCP servers too
-   early.
+   can spawn MCP servers inside it on demand.
 
 3. Install the JavaScript workspace dependencies once inside the container:
 
@@ -43,7 +35,7 @@ VS Code without having to install Node.js, Python, or `uv` locally.
    docker compose exec dev npm run build --workspaces
    ```
 
-4. Install Python dependencies for the `uv`-based servers (run each command once):
+4. Install Python dependencies for the `uv` based servers (run each command once):
 
    ```bash
    docker compose exec dev bash -lc "cd src/fetch && uv sync --frozen"
